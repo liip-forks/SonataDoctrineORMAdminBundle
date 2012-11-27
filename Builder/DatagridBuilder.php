@@ -131,7 +131,7 @@ class DatagridBuilder implements DatagridBuilderInterface
         $pager = new Pager;
         $pager->setCountColumn($admin->getModelManager()->getIdentifierFieldNames($admin->getClass()));
 
-        $formBuilder = $this->formFactory->createNamedBuilder('filter', 'form', array(), array('csrf_protection' => false));
+        $formBuilder = $this->formFactory->createNamedBuilder('filter', 'form', array()); //todo: add an option to make the csrf_protection optional
 
         return new Datagrid($admin->createQuery(), $admin->getList(), $pager, $formBuilder, $values);
     }
